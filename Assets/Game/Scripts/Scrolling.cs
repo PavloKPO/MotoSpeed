@@ -16,6 +16,7 @@ public class Scrolling : MonoBehaviour
     {
         _cameraTransform = Camera.main.transform;
         _layers = new Transform[transform.childCount];
+        
         for(int i = 0; i < transform.childCount; i++)
         {
             _layers[i] = transform.GetChild(i);
@@ -27,13 +28,10 @@ public class Scrolling : MonoBehaviour
     private void Update()
     {
         if(_cameraTransform.position.x < (_layers[_leftIndex].transform.position.x + _viewZone))
-        {
             ScrollLeft();
-        }
+        
         if (_cameraTransform.position.x > (_layers[_rightIndex].transform.position.x - _viewZone))
-        {
             ScrollRight();
-        }
     }
 
     private void ScrollLeft()
@@ -44,9 +42,7 @@ public class Scrolling : MonoBehaviour
         _rightIndex--;
 
         if(_rightIndex < 0)
-        {
             _rightIndex = _layers.Length - 1;
-        }
     }
 
     private void ScrollRight()
@@ -57,8 +53,6 @@ public class Scrolling : MonoBehaviour
         _leftIndex++;
 
         if (_leftIndex == _layers.Length)
-        {
             _leftIndex = 0;
-        }
     }
 }
