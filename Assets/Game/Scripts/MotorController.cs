@@ -3,7 +3,7 @@ using UnityEngine;
 public class MotorController : MonoBehaviour
 {
     [SerializeField] private WheelJoint2D _backWheel;
-    [SerializeField] private float _carTorque;
+    [SerializeField] private float _motorTorque;
     
     private JointMotor2D _backMotor;
     private float _movement;
@@ -21,14 +21,14 @@ public class MotorController : MonoBehaviour
         if (_movement > 0)
         {
             _backMotor.motorSpeed -= 1f;
-            _backMotor.maxMotorTorque = _carTorque;
+            _backMotor.maxMotorTorque = _motorTorque;
 
             _backWheel.motor = _backMotor;
         }
         else if (_movement < 0)
         {
             _backMotor.motorSpeed += 1f;
-            _backMotor.maxMotorTorque = _carTorque;
+            _backMotor.maxMotorTorque = _motorTorque;
 
             _backWheel.motor = _backMotor;
 

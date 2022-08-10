@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _backWheel: {fileID: 86550147}
-  _carTorque: 5000
+  _motorTorque: 5000
 --- !u!1 &139261395
 GameObject:
   m_ObjectHideFlags: 0
