@@ -10,8 +10,6 @@ public class Scrolling : MonoBehaviour
 
     private int _leftIndex;
     private int _rightIndex;
-
-
     private void Start()
     {
         _cameraTransform = Camera.main.transform;
@@ -33,7 +31,6 @@ public class Scrolling : MonoBehaviour
         if (_cameraTransform.position.x > (_layers[_rightIndex].transform.position.x - _viewZone))
             ScrollRight();
     }
-
     private void ScrollLeft()
     {
         int lastRight = _rightIndex;
@@ -44,7 +41,6 @@ public class Scrolling : MonoBehaviour
         if(_rightIndex < 0)
             _rightIndex = _layers.Length - 1;
     }
-
     private void ScrollRight()
     {
         int lastLeft = _leftIndex;

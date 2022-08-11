@@ -6,40 +6,26 @@ public class MotorController : MonoBehaviour
     [SerializeField] private float _motorTorque;
     
     private JointMotor2D _backMotor;
-    private float _movement;
+    private float _movement;       
 
     private void Update()
     {
         _movement = Input.GetAxis("Horizontal");
         MovementBike();
-    }
-
-
-
+        
+    } 
     private void MovementBike()
     {
-        if (_movement > 0)
-        {
-            _backMotor.motorSpeed -= 1f;
-            _backMotor.maxMotorTorque = _motorTorque;
+        _backMotor.maxMotorTorque = _motorTorque;
+        _backMotor.motorSpeed -= _movement;
 
-            _backWheel.motor = _backMotor;
-        }
-        else if (_movement < 0)
-        {
-            _backMotor.motorSpeed += 1f;
-            _backMotor.maxMotorTorque = _motorTorque;
-
-            _backWheel.motor = _backMotor;
-
-        }
-        else
+        if (_movement == 0)
         {
             _backMotor.motorSpeed = 0;
             _backMotor.maxMotorTorque = 0;
 
-            _backWheel.motor = _backMotor;
         }
+        _backWheel.motor = _backMotor;
     }
 
 
